@@ -1,0 +1,15 @@
+/* Estilos específicos da página Bebidas */
+.menu-page__groups-grid{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0 4rem;
+}
+.menu-page__groups-grid .menu-page__group{
+  margin-bottom: 3.5rem;
+}
+
+@media (max-width: 860px){
+  .menu-page__groups-grid{
+    grid-template-columns: 1fr;
+  }
+}

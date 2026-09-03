@@ -1,0 +1,21 @@
+.visitar{ background: var(--cream); padding: 4rem 1.5rem 6.5rem; }
+.visitar__inner{ max-width: var(--wrap); margin: 0 auto; }
+.visitar__grid{ display: grid; grid-template-columns: 1fr 1fr 1.4fr; gap: 2.5rem; }
+.visitar__card h3{ font-family: var(--font-display); font-weight: 500; font-size: 1.1rem; color: var(--coffee-dark); margin: 0 0 0.5rem; }
+.visitar__card h3 + p{ margin-top: 0; margin-bottom: 1.6rem; color: #4a3323; }
+.hours{ border-collapse: collapse; width: 100%; }
+.hours td{ padding: 0.5rem 0; font-size: 0.9rem; color: #4a3323; border-bottom: 1px solid rgba(107,65,40,0.15); }
+.hours td:last-child{ text-align: right; font-family: var(--font-mono); color: var(--coffee-mid); }
+.visitar__note{ font-size: 0.82rem; color: var(--coffee-mid); margin-top: 1rem; font-style: italic; }
+.visitar__map{
+  border-radius: var(--radius);
+  overflow: hidden;
+  min-height: 260px;
+  border: 1px solid rgba(107,65,40,0.2);
+  filter: sepia(18%) saturate(85%) brightness(0.97);
+}
+.visitar__map iframe{ width: 100%; height: 100%; min-height: 260px; border: 0; }
+
+@media (max-width: 860px){
+  .visitar__grid{ grid-template-columns: 1fr; }
+}

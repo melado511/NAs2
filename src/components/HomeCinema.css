@@ -1,0 +1,173 @@
+.cinema-home{
+  position: relative;
+  height: 600vh;
+}
+.cinema-home__sticky{
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.cinema-home__stars{ position: absolute; inset: 0; z-index: 0; }
+
+/* xícara + fumaça — fica no canto direito, isolada do texto */
+.cinema-home__cup-wrap{
+  position: absolute;
+  right: 12%;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.cinema-home__cup{ width: 160px; }
+.cinema-home__cup-body{ fill: var(--coffee-mid); }
+.cinema-home__cup-handle{ fill: none; stroke: var(--coffee-mid); stroke-width: 8; }
+.cinema-home__cup-top{ fill: var(--coffee-black); }
+
+.cinema-home__steam{
+  display: flex;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+.cinema-home__steam span{
+  width: 7px;
+  border-radius: 999px;
+  background: linear-gradient(to top, transparent, rgba(228,189,130,0.55));
+  animation: cinemasteam 3s ease-in-out infinite;
+}
+.cinema-home__steam span:nth-child(2){ animation-delay: 0.4s; }
+.cinema-home__steam span:nth-child(3){ animation-delay: 0.8s; }
+@keyframes cinemasteam{
+  0%, 100%{ transform: translateY(0) scaleX(1); }
+  50%{ transform: translateY(-14px) scaleX(1.4); }
+}
+
+/* cenas de texto — cada uma ocupa a tela inteira e centraliza seu conteúdo com flex */
+.cinema-home__scene{
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  pointer-events: none;
+  padding: 0 1.5rem;
+}
+.cinema-home__scene > *{
+  pointer-events: auto;
+}
+.cinema-home__scene-inner{
+  width: 100%;
+  max-width: 40rem;
+}
+.cinema-home__scene--1 .cinema-home__scene-inner{ max-width: 46rem; }
+
+.cinema-home__title{
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  line-height: 0.98;
+  color: var(--coffee-dark);
+  margin: 0 0 1rem;
+}
+.cinema-home__lede{ color: var(--coffee-mid); font-size: 1.05rem; }
+
+.cinema-home__text{ color: #4a3323; font-size: 1.05rem; max-width: 40ch; margin: 0 auto; }
+.cinema-home__text--light{ color: var(--cream-soft); margin: 0 auto 2rem; }
+
+.cinema-home__marks{
+  list-style: none;
+  margin: 1.5rem auto 0;
+  padding: 0;
+  max-width: 28rem;
+  text-align: left;
+}
+.cinema-home__marks li{
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  color: var(--coffee-mid);
+  padding: 0.9rem 0;
+  border-bottom: 1px solid rgba(107,65,40,0.16);
+  display: flex;
+  gap: 0.9rem;
+}
+
+.cinema-home__scene--4 .constellation{ width: 100%; max-width: 320px; margin: 1rem auto 0; }
+.cinema-home__scene--4 .constellation__line{
+  fill: none;
+  stroke: var(--gold-bright);
+  stroke-width: 1.4;
+}
+
+/* cena final — caixa clicável */
+.cinema-home__cta{
+  position: absolute;
+  z-index: 4;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cinema-home__cta-box{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--gold);
+  color: var(--coffee-black);
+  padding: 2.5rem 3.5rem;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+.cinema-home__cta-box:hover{
+  background: var(--gold-bright);
+  transform: translateY(-4px);
+}
+.cinema-home__cta-eyebrow{
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+.cinema-home__cta-title{
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 500;
+}
+.cinema-home__cta-arrow{ font-size: 1.4rem; }
+
+.cinema-home__scroll-hint{
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  width: 1px;
+  height: 46px;
+}
+.cinema-home__scroll-hint span{
+  position: absolute; top:0; left:0; width: 1px; height: 100%;
+  background: linear-gradient(to bottom, transparent, var(--gold-bright));
+  animation: scrolldrop 2.2s ease-in-out infinite;
+}
+@keyframes scrolldrop{
+  0%{ transform: scaleY(0); transform-origin: top; opacity: 0; }
+  40%{ transform: scaleY(1); transform-origin: top; opacity: 1; }
+  60%{ transform: scaleY(1); transform-origin: bottom; opacity: 1; }
+  100%{ transform: scaleY(0); transform-origin: bottom; opacity: 0; }
+}
+
+@media (max-width: 860px){
+  .cinema-home{ height: 500vh; }
+  .cinema-home__cup-wrap{ right: 6%; }
+  .cinema-home__cup{ width: 100px; }
+  .cinema-home__cta-box{ padding: 2rem 2.2rem; }
+}
